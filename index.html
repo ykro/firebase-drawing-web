@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script>
+      var ref = new Firebase("https://led-drawing.firebaseio.com");    
+      function auth(provider){
+        if (provider === 'twitter') {
+          ref.authWithOAuthPopup("twitter", function(error, authData) {
+            if (error) {
+              console.log("Login Failed!", error);
+            } else {
+              window.location.href = "drawing.html";
+              console.log("Authenticated successfully with payload:", authData);
+            }
+          });                  
+        } else if (provider === 'password') {
+          ref.authWithPassword({            
+            email    : document.getElementById('username').value,
+            password : document.getElementById('password').value
+          }, function(error, authData) {
+            if (error) {
+              console.log("Login Failed!", error);
+            } else {
+              window.location.href = "drawing.html";
+              console.log("Authenticated successfully with payload:", authData);
+            }
+          });      
+        }
+      }
+
+      window.onload = function (){
+        var authData = ref.getAuth();
+        if (authData) {
+          window.location.href = "drawing.html";
+        }
+      }
+    </script>  
+
+  </head>
+  <body>
+    <form method="post" action="javascript:auth('password')">
+      Username: <input type="text" id="username" size="15" /><br/>
+      Password: <input type="password" id="password" size="15" /><br/>
+
+      <input type="submit" value="Login" />
+    </form>
+    <hr/> 
+    <br/>
+    <a href="javascript:auth('twitter');"><img src="sign-in-with-twitter-gray.png"/></a>
+  </body>
+</html>
