@@ -1,2 +1,5 @@
 # OSX files
 .DS_Store
+
+#firebase hosting
+firebase.json
