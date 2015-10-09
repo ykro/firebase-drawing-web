@@ -1,3 +1,5 @@
-![web](http://imgur.com/GVY2PUh)
-![android](http://imgur.com/kJxscKP)
-![hardware](http://imgur.com/kfFCHWO)
+![web](http://i.imgur.com/GVY2PUh.png)
+
+![android](http://i.imgur.com/kJxscKP.png)
+
+![hardware](http://i.imgur.com/kfFCHWO.png)
